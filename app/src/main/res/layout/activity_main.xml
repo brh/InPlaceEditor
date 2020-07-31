@@ -20,7 +20,44 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_msg"
+            android:hint="@string/prj_msg_to_user"
+            app:helperText="@string/prj_msg_to_user_helper"
+            app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Caption"
+            app:counterMaxLength="50"
+            app:startIconDrawable="@drawable/ic_baseline_check_24"
+            app:endIconDrawable="@drawable/ic_baseline_delete_24"
+            app:endIconTint="@color/colorPrimary"
+            app:endIconMode="custom"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ed_msg"
+                android:inputType="textCapSentences"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            app:layout_constraintTop_toBottomOf="@id/til_msg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
